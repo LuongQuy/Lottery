@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <!--seo-->
+    <meta name="description" content="Lotto - International blockchain lottery based on Ethereum smart contacts">
+    <title>Lottery</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+</head>
+<body>
+<video id="video_background" preload="auto" autoplay="true" loop="loop" muted volume="0">
+    <source src="videos/background.mp4" type="video/mp4"/>
+</video>
+<div class="container">
+  <div class="row" style="margin-top: 50px">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+            <div id="balls-bar" data-ticket-id="1">
+                <div class="ticket-title">Ticket 1</div>
+                <div class="ticket-gameInfo">Select 5 numbers</div>
+                <a class="ticket-clear" style=""></a><a class="ticket-random" style="display: none;"></a>
+                <div class="ball" value="1">
+                    <div class="ball-number">1</div>
+                </div>
+                <div class="ball" value="2">
+                    <div class="ball-number">2</div>
+                </div>
+                <div class="ball" value="3">
+                    <div class="ball-number">3</div>
+                </div>
+                <div class="ball" value="4">
+                    <div class="ball-number">4</div>
+                </div>
+                <div class="ball" value="5">
+                    <div class="ball-number">5</div>
+                </div>
+                <div class="ball" value="6">
+                    <div class="ball-number">6</div>
+                </div>
+                <div class="ball" value="7">
+                    <div class="ball-number">7</div>
+                </div>
+                <div class="ball" value="8">
+                    <div class="ball-number">8</div>
+                </div>
+                <div class="ball" value="9">
+                    <div class="ball-number">9</div>
+                </div>
+                <div class="ball" value="10">
+                    <div class="ball-number">10</div>
+                </div>
+                <div class="ball" value="11">
+                    <div class="ball-number">11</div>
+                </div>
+                <div class="ball" value="12">
+                    <div class="ball-number">12</div>
+                </div>
+                <div class="ball" value="13">
+                    <div class="ball-number">13</div>
+                </div>
+                <div class="ball" value="14">
+                    <div class="ball-number">14</div>
+                </div>
+                <div class="ball" value="15">
+                    <div class="ball-number">15</div>
+                </div>
+                <div class="ball" value="16">
+                    <div class="ball-number">16</div>
+                </div>
+                <div class="ball" value="17">
+                    <div class="ball-number">17</div>
+                </div>
+                <div class="ball" value="18">
+                    <div class="ball-number">18</div>
+                </div>
+                <div class="ball" value="19">
+                    <div class="ball-number">19</div>
+                </div>
+                <div class="ball" value="20">
+                    <div class="ball-number">20</div>
+                </div>
+                <div class="ball" value="21">
+                    <div class="ball-number">21</div>
+                </div>
+                <div class="ball" value="22">
+                    <div class="ball-number">22</div>
+                </div>
+                <div class="ball" value="23">
+                    <div class="ball-number">23</div>
+                </div>
+                <div class="ball" value="24">
+                    <div class="ball-number">24</div>
+                </div>
+                <div class="ball" value="25">
+                    <div class="ball-number">25</div>
+                </div>
+                <div class="ball" value="26">
+                    <div class="ball-number">26</div>
+                </div>
+                <div class="ball" value="27">
+                    <div class="ball-number">27</div>
+                </div>
+                <div class="ball" value="28">
+                    <div class="ball-number">28</div>
+                </div>
+                <div class="ball" value="29">
+                    <div class="ball-number">29</div>
+                </div>
+                <div class="ball" value="30">
+                    <div class="ball-number">30</div>
+                </div>
+                <div class="ball" value="31">
+                    <div class="ball-number">31</div>
+                </div>
+                <div class="ball" value="32">
+                    <div class="ball-number">32</div>
+                </div>
+                <div class="ball" value="33">
+                    <div class="ball-number">33</div>
+                </div>
+                <div class="ball" value="34">
+                    <div class="ball-number">34</div>
+                </div>
+                <div class="ball" value="35">
+                    <div class="ball-number">35</div>
+                </div>
+                <div class="ball" value="36">
+                    <div class="ball-number">36</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+            <div id="lottoDesktopToolbar" class="">
+                <div>
+                    <img src="img/logo_5x36.svg">
+                </div>
+
+                <div>
+                    <span class="jackPotLabel" data-locale="jackpot">Jackpot</span><br>
+                    <span class="jackPotAmountLabel">82 ETH</span><br>
+                    <span class="timeLabel">22:37:56 time left</span>
+                </div>
+
+                <div class="totalCountLabel" style="display: none;">0 tickets</div>
+
+                <a href="#" id="buyButton" class="buyButton button button-big button-fill buy_button_disabled"><b>Buy</b></a>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="game_info">
+      <div class="col-md-12">
+          <text><b>Tổng tiền thưởng: </b></text><text id="total_eth"></text> ether<br>
+          <text><b>Tổng số vé đã bán: </b></text><text id="total_player"></text><br>
+          <text><b>Dãy số trúng thưởng gần nhất: </b><text id="win_number"></text>
+    </div>
+  </div>
+</div>
+<script>
+window.addEventListener('load', function() {
+  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+    // Use Mist/MetaMask's provider
+    web3js = new Web3(web3.currentProvider);
+  } else {
+    console.log('No web3? You should consider trying MetaMask!')
+    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+    web3js = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  }
+});
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var numbers_selected = new Array();
+    $('.ball').bind('click', function(event){
+      if($('.ball-selected').length < 5){
+        $(this).addClass('ball-selected');
+        numbers_selected.push(+($(this).text()));
+      }
+      if($('.ball-selected').length == 5){
+        $('.buy_button_disabled').removeClass('buy_button_disabled');
+      }
+    });
+
+    $('.ticket-clear').bind('click', function(event){
+      numbers_selected.splice(0, numbers_selected.length);
+      if($('div').hasClass('ball-selected')){
+        $('.ball-selected').removeClass('ball-selected');
+        $('.buyButton').addClass('buy_button_disabled');
+      }
+    });
+
+    var LottoContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"numberSelected","type":"uint256[]"}],"name":"buyTicket","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"playerAdress","type":"address"}],"name":"checkPlayerExist","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_numberSelected","type":"uint256[]"}],"name":"checkWinNumber","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"distributePrizes","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"generateWinNumber","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"getBlockHashPrevious","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"resetData","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"allNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"blockHashPrevious","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getPlayers","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"playerAdress","type":"address"}],"name":"getTicketOfPlayer","outputs":[{"name":"","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getTotalPlayer","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getWinner","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getWinnerEtherAmount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getWinNumber","outputs":[{"name":"","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"maxNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"maxPlayer","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"numberCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"players","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"uint256"}],"name":"ticketOfPlayers","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ticketPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"winnerEtherAmount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"winners","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"winNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
+    );
+
+      var LottoInstance = LottoContract.at("0x1f9f7d80dd96943fc71a3726e7aef282ab6c672b");
+
+      function getInfo() {
+        LottoInstance.getBalance((err, result) => {
+          $("#total_eth").html(web3.fromWei(parseInt(result), 'ether'));
+        });
+        LottoInstance.getTotalPlayer((err, res) => {
+          if(res != null) {
+            $("#total_player").html(res.toNumber());
+          }
+        });
+        LottoInstance.getWinNumber(function(err, result){
+          if(result != null){
+            $("#win_number").html(result.toString());
+          }
+        });
+      }
+      getInfo();
+      $("#buyButton").click(function() {
+        // numbers_selected.sort(function(a, b){return a - b});
+        LottoInstance.buyTicket(numbers_selected, {
+          gas: 3000000,
+          from: web3.eth.accounts[0],
+          value: web3.toWei(0.01, 'ether')
+        }, (err, result) => {
+
+        });
+        // LottoInstance.buyTicket({
+        //   gas: 300000,
+        //   from: web3.eth.accounts[0],
+        //   value: web3.toWei(0.01, 'ether')
+        // });
+        // $("#total_eth").html(Lotto.totalEth);
+        // alert("Bạn đã mua vé số thành công!");
+        numbers_selected.splice(0, numbers_selected.length);
+        $(".ball-selected").removeClass("ball-selected");
+        $("#buyButton").addClass("buy_button_disabled");
+    });
+  });
+</script>
+<!-- <script src="js/javascript.js"></script> -->
+</body>
+</html>
